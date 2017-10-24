@@ -27,18 +27,18 @@ describe "User visits Idea index page," do
 
   end
 
-  # scenario "they can click on the Idea to see the show page" do
-  #   category = create(:category)
-  #   image = Image.create(title: "Rainbow", image_path: "https://static.pexels.com/photos/108941/pexels-photo-108941.jpeg")
-  #
-  #   idea_1 = Idea.create(title: "omg1", description: "omg1descr", category_id: category.id)
-  #
-  #   visit ideas_path
-  #
-  #   click_link "omg1"
-  #
-  #   expect(current_path).to eq(idea_path(idea))
-  # end
+  scenario "they can click on the Idea to see the show page" do
+    category = create(:category)
+    image = Image.create(title: "Rainbow", image_path: "https://static.pexels.com/photos/108941/pexels-photo-108941.jpeg")
+
+    idea = Idea.create(title: "omg1", description: "omg1descr", category_id: category.id)
+
+    visit ideas_path
+
+    click_link "omg1"
+
+    expect(current_path).to eq(idea_path(idea))
+  end
 
   scenario "they can click edit" do
     category = create(:category)

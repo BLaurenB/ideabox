@@ -3,6 +3,6 @@
 <%= link_to "Create a New Idea", new_idea_path %>
 
 <%= @ideas.each do |idea| %>
-<%= idea.title %>
+<%= link_to idea.title, idea_path(idea) %>
 <%= button_to "Edit", edit_idea_path(idea), method: :get %>
 <% end %>
