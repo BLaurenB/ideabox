@@ -1,3 +1,8 @@
 <h1>Ideas</h1>
 
 <%= link_to "Create a New Idea", new_idea_path %>
+
+<%= @ideas.each do |idea| %>
+<%= idea.title %>
+<%= button_to "Edit", edit_idea_path(idea), method: :get %>
+<% end %>
