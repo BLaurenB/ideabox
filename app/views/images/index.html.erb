@@ -5,6 +5,5 @@
 <% @images.each do |image| %>
 <%= image.title %><br/>
 <%= image_tag image.image_path, size: "300x200" %><br/>
-
 <%= button_to "Delete", image_path(image), method: :delete %>
 <% end %>

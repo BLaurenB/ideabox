@@ -1,0 +1,9 @@
+<h1>Create a New Image</h1>
+
+<%= form_for @image do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<%= f.label :image_path, "Paste in a url" %>
+<%= f.text_field :image_path %>
+<%= f.submit %>
+<% end %>
