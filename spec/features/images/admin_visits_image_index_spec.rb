@@ -18,7 +18,6 @@ describe "Admin visits Image index," do
 
     expect(page).to have_content("Images")
     expect(page).to have_css("img[src*='pexels-photo-108941.jpeg']")
-    expect(page).to have_button("Edit")
     expect(page).to have_button("Delete")
   end
 
@@ -31,14 +30,6 @@ describe "Admin visits Image index," do
     expect(current_path).to eq(new_image_path)
   end
 
-  scenario "they click Edit" do
-    image = Image.create(title: "Rainbow", image_path: "https://static.pexels.com/photos/108941/pexels-photo-108941.jpeg")
-
-    visit images_path
-    click_on "Edit"
-
-    expect(current_path).to eq(edit_image_path(image))
-  end
 
   scenario "they click Delete" do
     Image.create(title: "Rainbow", image_path: "https://static.pexels.com/photos/108941/pexels-photo-108941.jpeg")

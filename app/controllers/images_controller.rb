@@ -4,12 +4,6 @@ class ImagesController < ActionController::Base
     @images = Image.all
   end
 
-  def edit
-    @image = Image.find(params[:id])
-  end
-
-  def update
-  end 
 
   def destroy
     @image = Image.find(params[:id])
