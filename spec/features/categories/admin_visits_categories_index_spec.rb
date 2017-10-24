@@ -1,14 +1,6 @@
 require 'rails_helper'
 
 
-=begin
-When a user (later will be Admin only) visits the Index page, they should see
- - a heading of categories
- - a link to a Create New Categories (or button)
- - a list of existing categories
- - links to edit and delete each category shown
-=end
-
 feature "Admin level user visits Category index," do
   scenario "they see a heading called Categories" do
     visit categories_path
