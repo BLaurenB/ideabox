@@ -1,0 +1,10 @@
+<h1>Images</h1>
+
+<%= link_to "Create a New Image", new_image_path %>
+
+<% @images.each do |image| %>
+<%= image.title %>
+<%= image_tag image.image_path %>
+<%= button_to "Edit", edit_image_path(image), method: :get %>
+<%= button_to "Delete", image_path(image), method: :delete %>
+<% end %>
