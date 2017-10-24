@@ -2,7 +2,8 @@
 
 <%= link_to "Create a New Idea", new_idea_path %>
 
-<%= @ideas.each do |idea| %>
+<% @ideas.each do |idea| %>
 <%= link_to idea.title, idea_path(idea) %>
 <%= button_to "Edit", edit_idea_path(idea), method: :get %>
+<%= button_to "Delete", idea_path(idea), method: :delete %>
 <% end %>

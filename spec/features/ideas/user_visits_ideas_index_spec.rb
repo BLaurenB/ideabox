@@ -53,19 +53,20 @@ describe "User visits Idea index page," do
     expect(current_path).to eq(edit_idea_path(idea))
   end
 
-  #
-  # scenario "they can click edit" do
-  #   category = create(:category)
-  #   image = Image.create(title: "Rainbow", image_path: "https://static.pexels.com/photos/108941/pexels-photo-108941.jpeg")
-  #
-  #   ideas = create_list(:idea, 3, category: category, image: image) #not sure if this will work
-  #
-  #   visit ideas_path
-  #
-  #   click_on "Delete"
-  #
-  #   expect(current_path).to eq(ideas_path(ideas))
-  # end
+
+  scenario "they can delete an Idea" do
+    category = create(:category)
+    image = Image.create(title: "Rainbow", image_path: "https://static.pexels.com/photos/108941/pexels-photo-108941.jpeg")
+
+    idea = Idea.create(title: "omg1", description: "omg1descr", category_id: category.id)
+
+    visit ideas_path
+
+    click_on "Delete"
+
+    expect(current_path).to eq(ideas_path)
+    expect(page).to_not have_content("omg1")
+  end
 
 
 end
