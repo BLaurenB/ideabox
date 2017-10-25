@@ -7,10 +7,7 @@ feature "Admin level user visits page to edit category," do
     idea = Idea.create(title: "This Idea!", description:"It's a good one", category_id: Category.last.id)
 
     visit edit_category_path(category)
-
-    within(:css, "h1") do
-      expect(page).to have_content("Edit")
-    end
+    expect(page).to have_content("Edit")
   end
 
     scenario "they fill in the form to edit the category," do

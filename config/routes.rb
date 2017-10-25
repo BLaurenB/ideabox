@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  resources :categories
-  resources :images, only: [:index, :destroy, :new, :create]
-  resources :ideas, only: [:index, :new, :edit, :show, :destroy]
+  root to: 'categories#index'
 
+  resources :categories do
+    resources :ideas, only: [:index, :new, :create, :edit, :show, :destroy]
+  end
+  resources :images, only: [:index, :destroy, :new, :create]
+  resources :ideas, only: [:index]
 end

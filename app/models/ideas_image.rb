@@ -1,4 +1,4 @@
-class IdeaImage < ActionController::Base
+class IdeasImage < ApplicationRecord
   belongs_to :idea
   belongs_to :image
 end
