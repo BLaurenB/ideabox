@@ -4,9 +4,7 @@ require 'rails_helper'
 feature "Admin level user visits Category index," do
   scenario "they see a heading called Categories" do
     visit categories_path
-    within(:css, "h1") do
-      expect(page).to have_content("Categories")
-    end
+    expect(page).to have_content("Categories")
   end
 
   scenario "they can click a link to create a new category" do

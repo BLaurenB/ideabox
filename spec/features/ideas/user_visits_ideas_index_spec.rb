@@ -5,10 +5,7 @@ describe "User visits Idea index page," do
   scenario "they see h1 and link to add new idea" do
     visit ideas_path
 
-    within(:css, "h1") do
-      expect(page).to have_content("Ideas")
-    end
-
+    expect(page).to have_content("Ideas")
     expect(page).to have_link("Create a New Idea")
   end
 
