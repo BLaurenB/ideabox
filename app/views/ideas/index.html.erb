@@ -1,9 +1,12 @@
 <h1>Ideas</h1>
 
-<%= link_to "Create a New Idea", new_idea_path %>
+<%= link_to "Create a New Idea", new_idea_path %></br>
 
 <% @ideas.each do |idea| %>
-<%= link_to idea.title, idea_path(idea) %>
+<h3><%= link_to idea.title, idea_path(idea) %></h3>
+  <% idea.images.each do |image| %>
+  <%= image_tag image.image_path, size: "300x200" %><br/>
+  <% end %>
 <%= button_to "Edit", edit_idea_path(idea), method: :get %>
 <%= button_to "Delete", idea_path(idea), method: :delete %>
 <% end %>
