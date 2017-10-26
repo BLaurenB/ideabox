@@ -24,6 +24,10 @@ body a {
   color: black;
 }
 
+body a:hover {
+  color: #3f7491;
+}
+
 .title_bar {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 3em;

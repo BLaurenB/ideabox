@@ -5,7 +5,7 @@ describe "Guest visits Idea Box," do
     visit '/'
 
     expect(page).to have_content("Welcome")
-    expect(page).to have_content("Login")
+    expect(page).to have_content("Log In")
     expect(page).to have_content("Create a New User Account")
   end
 
@@ -17,8 +17,9 @@ describe "Guest visits Idea Box," do
     fill_in "user[username]", with: "funbucket13"
     fill_in "user[password]", with: "Pass789"
 
-    click_on "Create User"
-    expect(current_path).to eq(user_show_path)
+    click_on "Create Account"
+
+    # expect(current_path).to eq(user_path(user))
     expect(page).to have_content("Welcome, funbucket13!")
   end
 

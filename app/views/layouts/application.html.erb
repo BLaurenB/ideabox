@@ -14,7 +14,7 @@
         <h2><%= link_to "Categories", categories_path%>  |
         <%= link_to "Ideas", ideas_path %>  |
         <%= link_to "Images", images_path%></h2></br>
-        <%#= link_to('Logout', logout_path, method: :delete) if user.default? || user.admin?  %>   
+        <% if @user %>  <%= link_to('Logout', logout_path, method: :delete)  %> <% end %>
       </nav>
         <% flash.each do |name, msg| %>
           <%= content_tag :div, msg, class: name %>
