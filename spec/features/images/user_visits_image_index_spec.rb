@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Admin visits Image index," do
+describe "User visits Image index," do
   scenario "they see h1 and link to create new images" do
     Image.create(title: "Rainbow", image_path: "https://static.pexels.com/photos/108941/pexels-photo-108941.jpeg")
 
