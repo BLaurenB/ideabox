@@ -1,0 +1,9 @@
+<h1>Please enter your Username and Password</h1>
+
+<%= form_for(:session, url: login_path) do |f| %>
+<%= f.label :username %>
+<%= f.text_field :username %></br>
+<%= f.label :password %>
+<%= f.password_field :password %></br>
+<%= f.submit "Log In" %>
+<% end %>

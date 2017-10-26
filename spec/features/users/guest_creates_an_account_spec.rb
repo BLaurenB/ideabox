@@ -19,7 +19,6 @@ describe "Guest visits Idea Box," do
 
     click_on "Create Account"
 
-    # expect(current_path).to eq(user_path(user))
     expect(page).to have_content("Welcome, funbucket13!")
   end
 
