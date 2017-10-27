@@ -1,6 +1,10 @@
 require 'rails_helper'
 
 describe "User visits Idea index page," do
+  before do
+    admin = User.create(username: "penelope", password: "boom", role: 0)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+  end
 
   scenario "they see h1 and link to add new idea" do
     visit ideas_path

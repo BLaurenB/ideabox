@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 describe "User visits Image index," do
+
+  before do
+    admin = User.create(username: "penelope", password: "boom", role: 1)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+  end
+
   scenario "they see h1 and link to create new images" do
     Image.create(title: "Rainbow", image_path: "https://static.pexels.com/photos/108941/pexels-photo-108941.jpeg")
 

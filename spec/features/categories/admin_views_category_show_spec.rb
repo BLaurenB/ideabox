@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 feature "Admin user visits a category show page," do
+  before do
+    admin = User.create(username: "penelope", password: "boom", role: 1)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+  end
+
   scenario "they see links for editing, deleting, and returning to index" do
 
     category = create(:category)

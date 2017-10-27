@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 describe "User visits Image index," do
+  before do
+    admin = User.create(username: "penelope", password: "boom", role: 1)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
+  end
+
   scenario "they see h1 and link to create new images" do
     visit new_admin_image_path
 
