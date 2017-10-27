@@ -9,8 +9,22 @@ describe "User visits categories index page" do
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(admin)
 
       visit admin_categories_path
-      expect(page).to have_content("Admin Categories")
+      expect(page).to have_content("Admin: All Categories")
+      visit admin_images_path
+      expect(page).to have_content("Admin: All Images")
 
     end
+  end
+
+  context "as default user" do
+    it "does not allow default user to see admin views" do
+      user = User.create(username: "fern@gully.com", password: 'password', role: 0)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      visit admin_categories_path
+      expect(page).to_not have_content("Admin:")
+      expect(page).tp have_content("You are not authorized for this page.")
+    end 
   end
 end
