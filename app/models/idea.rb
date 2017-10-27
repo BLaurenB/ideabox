@@ -4,4 +4,7 @@ class Idea < ApplicationRecord
   has_many :images, through: :ideas_images
 
   validates :title, presence: true, uniqueness: true
+
+
+
 end
