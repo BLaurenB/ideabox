@@ -1,9 +1,9 @@
 <h1>Images</h1>
 
-<%= link_to "Create a New Image", new_image_path %><br/>
+<%= link_to "Create a New Image", new_admin_image_path %><br/>
 
 <% @images.each do |image| %>
 <%= image.title %><br/>
 <%= image_tag image.image_path, size: "300x200" %><br/>
-<%= button_to "Delete", image_path(image), method: :delete %>
+<%= button_to "Delete", admin_image_path(image), method: :delete %>
 <% end %>

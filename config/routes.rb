@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  resources :categories
-  resources :images, only: [:index, :destroy, :new, :create]
+  namespace :admin do
+    resources :categories
+    resources :images, only: [:index, :destroy, :new, :create]
+  end
+
   resources :ideas, only: [:index, :new, :edit, :show, :destroy]
   resources :users, only: [:new, :create, :show]
 

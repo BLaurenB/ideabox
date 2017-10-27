@@ -1,0 +1,9 @@
+<h1>All Categories</h1>
+
+<%= link_to "Create a New Category", new_admin_category_path(@category) %><br/>
+
+<% @categories.each do |category| %>
+<h2><%= link_to category.title, admin_category_path(category) %><h2>
+<%= button_to "Edit", edit_admin_category_path(category), method: :get %>
+<%= button_to "Delete", admin_category_path(category), method: :delete %>
+<% end %>

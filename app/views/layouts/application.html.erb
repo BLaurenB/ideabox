@@ -11,9 +11,9 @@
     <body>
       <h1 class="title_bar">iDEA bOX</h1>
       <nav>
-        <h2><%= link_to "Categories", categories_path%>  |
+        <h2><%= link_to "Categories", admin_categories_path%>  |
         <%= link_to "Ideas", ideas_path %>  |
-        <%= link_to "Images", images_path%>  |
+        <%= link_to "Images", admin_images_path%>  |
         <%= link_to('Logout', logout_path, method: :delete) %></h2>
       </nav>
         <% flash.each do |name, msg| %>
