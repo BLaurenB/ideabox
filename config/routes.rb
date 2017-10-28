@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :images, only: [:index, :destroy, :new, :create]
   end
 
-  resources :ideas, only: [:index, :new, :edit, :show, :destroy]
+  resources :ideas, only: [:index, :new, :create, :edit,:update, :show, :destroy]
   resources :users, only: [:new, :create, :show]
 
   get '/login', to: 'sessions#new'

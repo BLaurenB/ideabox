@@ -3,6 +3,5 @@ FactoryGirl.define do
     sequence(:title) {|n| "Idea Title #{n}"}
     sequence(:description) {|n| "Idea Description #{n}"}
     category
-    image
   end
 end

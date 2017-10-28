@@ -18,7 +18,6 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   def show
-    # byebug
     @category = Category.find(params[:id])
   end
 

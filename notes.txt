@@ -26,11 +26,21 @@ After that we need to whitelist expertise_ids in /app/controllers/professors_con
 params.require(:professor).permit(:name, expertise_ids:[])
 
 <div class="field">
-  <%= f.label "Area of Expertise" %><br />
-  <%= f.collection_check_boxes :expertise_ids, Expertise.all, :id, :name do |b| %>
-    <div class="collection-check-box">
-      <%= b.check_box %>
-      <%= b.label %>
-    </div>
+  <%= form_for [@idea] do |f| %>
+    f.  ...
+    f.  ...
+
+  <%= f.label "Choose Images for your Idea" %><br/>
+  <div class="collection-check-box">
+    <%= f.collection_check_boxes :image_id, @image.order(:title), :id, :title do |i| %>
+        <%= i.check_box %>
+        <%= i.label %>
+      </div>
+    <% end %>
   <% end %>
 </div>
+
+Matt Rogers
+Josh Mejia
+Ian Douglas
+Jason Noble

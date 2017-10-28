@@ -20,9 +20,12 @@ describe "User visits Idea index page," do
     idea_1 = Idea.create(title: "omg1", description: "omg1descr", category_id: category.id)
     idea_2 = Idea.create(title: "omg2", description: "omg2descr", category_id: category.id)
 
+    idea_1.images << image
+    idea_2.images << image 
+
     visit ideas_path
 
-    # expect(page).to have_css("img[src*='pexels-photo-108941.jpeg']")
+    expect(page).to have_css("img[src*='pexels-photo-108941.jpeg']")
     expect(page).to have_content("omg1")
     expect(page).to have_content("omg2")
 

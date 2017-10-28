@@ -91,6 +91,11 @@ p {
   margin: 50px;
 }
 
+.checkbox_container input {
+  display: grid;
+  margin: 1em;
+}
+
 header {
   display: flex;
   justify-content: baseline;

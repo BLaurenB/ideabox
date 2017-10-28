@@ -1,0 +1,11 @@
+<h1><%= @idea.title  %></h1>
+
+<h2><%=@idea.description%></h2>
+
+<% @idea.images.each do |image| %>
+<%= image_tag image.image_path, size: "300x200" %>
+<% end %> <br/>
+<%= button_to "Edit", edit_idea_path(@idea), method: :get %>
+<%= button_to "Delete", idea_path(@idea), method: :delete %><br/>
+
+<%= link_to "Return to Ideas Index", ideas_path %>
