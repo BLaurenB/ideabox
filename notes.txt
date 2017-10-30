@@ -1,5 +1,6 @@
 still to do:
 *  images presented as checkboxes or radio buttons - on new and edit views
+*  deploy to Heroku
 *  make sure users can't see each others ideas.
     Users can create, edit/update, show, and destroy only their own ideas.
       PROBLEM! now no one can log in?
@@ -9,38 +10,52 @@ Check specs and see if there is other stuff that I need to do.
 
 
 Other things to do this weekend:
- - CFUs
  - Ruby/AR Obstacle Course.
  - SQL and AR more? how to make projects for myself? try to do BikeShare logistics?
  - play with flexbox and sass.
- - What to do with Lovisa?
  - go over cart creation a few times...maybe try to add a cart to my idea box?
    - is there other stuff that could be done with a cart-type-feature? session data that is stored while someone is logged in?
     - OR look into the next project...not just a cart, but how to go from cart items all the way through checkout?
  - review ruby stuff?
 
-
-
-After that we need to whitelist expertise_ids in /app/controllers/professors_controller.rb:
-
-params.require(:professor).permit(:name, expertise_ids:[])
-
-<div class="field">
-  <%= form_for [@idea] do |f| %>
-    f.  ...
-    f.  ...
-
-  <%= f.label "Choose Images for your Idea" %><br/>
-  <div class="collection-check-box">
-    <%= f.collection_check_boxes :image_id, @image.order(:title), :id, :title do |i| %>
-        <%= i.check_box %>
-        <%= i.label %>
-      </div>
-    <% end %>
-  <% end %>
-</div>
-
+To ask about better way to do the checkboxes with images showing...
 Matt Rogers
 Josh Mejia
 Ian Douglas
 Jason Noble
+
+
+
+PRACTICE------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+END!!!!!!
