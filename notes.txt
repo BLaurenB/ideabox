@@ -1,6 +1,6 @@
 still to do:
 *  images presented as checkboxes or radio buttons - on new and edit views
-*  deploy to Heroku
+*  deploy to Heroku  https://sheltered-scrubland-99592.herokuapp.com/ 
 *  make sure users can't see each others ideas.
     Users can create, edit/update, show, and destroy only their own ideas.
       PROBLEM! now no one can log in?
@@ -23,6 +23,7 @@ Matt Rogers
 Josh Mejia
 Ian Douglas
 Jason Noble
+
 
 
 
