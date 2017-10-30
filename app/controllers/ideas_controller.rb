@@ -12,27 +12,29 @@ class IdeasController < ApplicationController
 
 
   def index
-    @ideas = Idea.all
+    @ideas = current_user.ideas.all
   end
 
   def show
-    @idea = Idea.find(params[:id])
+    @idea = current_user.ideas.find(params[:id])
   end
 
   def new
     @categories = Category.all
-    @images = Image.all #.shuffle
-    @idea = Idea.new
+    @images = Image.all
+    @idea = current_user.ideas.new
   end
 
   def create
-    idea = Idea.new(idea_params)
+    idea = current_user.ideas.new(idea_params)
+    idea.user_id = current_user.id
     idea.images << Image.find((params[:idea][:id]).reject { |id| id.empty? })
+    # needed to add the reject because the inital array value is empty
     if idea.save
       redirect_to idea_path(idea)
     else
       flash[:error] = "Please try again"
-      @idea = Idea.new
+      @idea = current_user.ideas.new
       @categories = Category.all
       @images = Image.all
       render :new
@@ -40,24 +42,23 @@ class IdeasController < ApplicationController
   end
 
   def edit
-    @idea = Idea.find(params[:id])
+    @idea = current_user.ideas.find(params[:id])
     @categories = Category.all
     @images = Image.all
   end
 
   def update
 
-    idea = Idea.find(params[:id])
+    idea = current_user.ideas.find(params[:id])
     idea.update(idea_params)
-    idea.images.clear #the browser doesn't like .images, regardless of if I try  = nil or .clear or shoveling!
-    #need logic here to either get rid of al images for the idea and re-add them, or to check through all the images for ones that were deleted or being added... I think the shortest solution is to delete all images and re-post each time.
+    idea.images.clear 
     idea.images << Image.find((params[:idea][:id]).reject { |id| id.empty? })
 
     if idea.save
       redirect_to idea_path(idea)
     else
       flash[:error] = "Please try again"
-      @idea = Idea.new
+      @idea = current_user.ideas.new
       @categories = Category.all
       @images = Image.all
       render :edit
@@ -66,7 +67,7 @@ class IdeasController < ApplicationController
 
 
   def destroy
-    @idea = Idea.find(params[:id])
+    @idea = current_user.ideas.find(params[:id])
     @idea.destroy
     redirect_to ideas_path
   end
