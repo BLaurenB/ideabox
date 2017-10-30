@@ -13,9 +13,11 @@
       <nav>
         <h2><%= link_to "Categories", admin_categories_path%>  |
         <%= link_to "Ideas", ideas_path %>  |
-        <%= link_to "Images", admin_images_path%>  |
-        USER: <%= current_user.username if current_user %>,
-        <%= link_to('Logout', logout_path, method: :delete) %></h2>
+        <%= link_to "Images", admin_images_path%></h2>
+      </nav>
+      <nav>
+        <p style="text-align: center"> <%= "Hello, #{current_user.username}!  " if current_user %><br/>
+        <%= link_to('Logout', logout_path, method: :delete)  if current_user %></p>
       </nav>
         <% flash.each do |name, msg| %>
           <%= content_tag :div, msg, class: name %>
@@ -26,7 +28,7 @@
         </div>
 
       <footer>
-          <p style= "text-align: center"> Lauren Billington</p>
+          <p style="text-align: center"> Lauren Billington</p>
       </footer>
     </body>
 </html>
