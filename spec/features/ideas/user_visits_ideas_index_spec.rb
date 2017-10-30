@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe "User visits Idea index page," do
   before do
-    default = User.create(username: "penelope", password: "boom", role: 0)
-    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(default)
+    @default = User.create(username: "penelope", password: "boom", role: 0)
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@default)
   end
 
   scenario "they see h1 and link to add new idea" do
@@ -17,11 +17,11 @@ describe "User visits Idea index page," do
     category = create(:category)
     image = Image.create(title: "Rainbow", image_path: "https://static.pexels.com/photos/108941/pexels-photo-108941.jpeg")
 
-    idea_1 = Idea.create(title: "omg1", description: "omg1descr", category_id: category.id)
-    idea_2 = Idea.create(title: "omg2", description: "omg2descr", category_id: category.id)
+    idea_1 = @default.ideas.create(title: "omg1", description: "omg1descr", category_id: category.id)
+    idea_2 = @default.ideas.create(title: "omg2", description: "omg2descr", category_id: category.id)
 
     idea_1.images << image
-    idea_2.images << image 
+    idea_2.images << image
 
     visit ideas_path
 
@@ -35,7 +35,7 @@ describe "User visits Idea index page," do
     category = create(:category)
     image = Image.create(title: "Rainbow", image_path: "https://static.pexels.com/photos/108941/pexels-photo-108941.jpeg")
 
-    idea = Idea.create(title: "omg1", description: "omg1descr", category_id: category.id)
+    idea = @default.ideas.create(title: "omg1", description: "omg1descr", category_id: category.id)
 
     visit ideas_path
 
@@ -48,7 +48,7 @@ describe "User visits Idea index page," do
     category = create(:category)
     image = Image.create(title: "Rainbow", image_path: "https://static.pexels.com/photos/108941/pexels-photo-108941.jpeg")
 
-    idea = Idea.create(title: "omg1", description: "omg1descr", category_id: category.id)
+    idea = @default.ideas.create(title: "omg1", description: "omg1descr", category_id: category.id)
 
     visit ideas_path
 
@@ -62,7 +62,7 @@ describe "User visits Idea index page," do
     category = create(:category)
     image = Image.create(title: "Rainbow", image_path: "https://static.pexels.com/photos/108941/pexels-photo-108941.jpeg")
 
-    idea = Idea.create(title: "omg1", description: "omg1descr", category_id: category.id)
+    idea = @default.ideas.create(title: "omg1", description: "omg1descr", category_id: category.id)
 
     visit ideas_path
 

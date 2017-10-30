@@ -48,10 +48,9 @@ class IdeasController < ApplicationController
   end
 
   def update
-
     idea = current_user.ideas.find(params[:id])
     idea.update(idea_params)
-    idea.images.clear 
+    idea.images.clear
     idea.images << Image.find((params[:idea][:id]).reject { |id| id.empty? })
 
     if idea.save
