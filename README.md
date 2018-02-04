@@ -34,6 +34,7 @@ Categories
 
 
 Images
+
     Users can add an image to their own idea.
     An image can have many ideas and an idea can have many images.
     Images can only be created by an admin user. The most simplistic way to implement images is to store a url to an online image. 
