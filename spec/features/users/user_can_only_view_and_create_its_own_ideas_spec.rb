@@ -24,7 +24,9 @@ describe "When a User visits Idea Box, " do
 
 
   describe "When authenticated User views their ideas" do
+    scenario "they see all ideas they created" do
 
+    end 
   end
 
   describe "When user visits Ideas Index page, they only see their ideas" do

@@ -8,15 +8,13 @@
     <%= javascript_include_tag 'application'  %>
 
   </head>
-    <body>
-      <h1 class="title_bar">iDEA bOX</h1>
-      <nav>
-        <h2><%= link_to "Categories", admin_categories_path%>  |
+    <body class="">
+      <nav class = "trouble">
+      <h1 class="title_bar trouble">iDEA bOX</h1>
+        <h2 class="center trouble"><%= link_to "Categories", admin_categories_path%>  |
         <%= link_to "Ideas", ideas_path %>  |
         <%= link_to "Images", admin_images_path%></h2>
-      </nav>
-      <nav>
-        <p style="text-align: center"> <%= "Hello, #{current_user.username}!  " if current_user %><br/>
+        <p style="text-align: center trouble"> <%= "Hello, #{current_user.username}!  " if current_user %><br/>
         <%= link_to('Logout', logout_path, method: :delete)  if current_user %></p>
       </nav>
         <% flash.each do |name, msg| %>
